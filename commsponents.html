@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Comms Components</title>
+</head>
+<body>
+
+<h1>Comms Components</h1>
+<p>Embeded components fetch data automatically. You can define custom HTML and style.</p>
+
+<!-- required - embed vue or standalone SDK -->
+<script src="https://derive:8082/build/js/vueSDK.js"></script>
+
+<div id="comms-embed">
+
+    <!-- required - used for CORS communication -->
+    <meta name="pckgvdth" :content="pckgvdth"/>
+
+    <!-- example - custom template with auto-fetched packets -->
+    <comms-embed-list list="packets" page="1" limit="10" ref="lists">
+        <div slot="body" slot-scope="slotProps">
+            <div v-if="slotProps.packets.length === 0">
+                Loading in custom template ...
+            </div>
+            <div v-else v-for="packet in slotProps.packets">
+                <h2>{{ packet.title }}</h2>
+                <hr/>
+            </div>
+        </div>
+    </comms-embed-list>
+
+</div>
+
+<script>
+
+    // init Vue and Commsponents, set API endpoint
+    CommsSDK.init({
+        element: '#comms-embed',
+        url: 'https://derive:8082',
+    });
+
+</script>
+
+<p>Powered by <a href="https://comms.dev/">Comms.dev</a></p>
+
+</body>
+</html>

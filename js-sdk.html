@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Comms JS SDK</title>
+</head>
+<body>
+
+<h1>Comms JS SDK</h1>
+<p>Packets are loaded by calling CommsSDK.init(...) and CommsSDK.createEntity('packets').limit(5).all() </p>
+
+<!-- required - embed vue or standalone SDK -->
+<script src="https://derive:8082/build/js/vueSDK.js"></script>
+
+<div id="comms-embed">
+
+    <!-- required - used for CORS communication -->
+    <meta name="pckgvdth" :content="pckgvdth"/>
+
+    <!-- example - VueX store -->
+    <div v-if="$store.state.Packets.loading !== 0">
+        Loading ...
+    </div>
+    <div class="packets" v-else>
+        <div v-for="packet in $store.state.Packets.packets">
+            <h2>{{ packet.title }}</h2>
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+    // example - local store with loading interface
+    let localStore = {
+        Packets: {
+            state: Object.assign({
+                packets: []
+            }, CommsSDK.store.baseStore.state),
+            actions: Object.assign({
+                fetchPackets: function (store) {
+                    store.dispatch('loading', function () {
+                        return CommsSDK.createEntity('packets')
+                            .limit(5)
+                            .all();
+                    }).then(function (packets) {
+                        store.commit('setPackets', packets);
+                    });
+                }
+            }, CommsSDK.store.baseStore.actions),
+            mutations: Object.assign({
+                setPackets: function (state, packets) {
+                    state.packets = packets;
+                }
+            }, CommsSDK.store.baseStore.mutations),
+        }
+    };
+
+    // init Vue and Commsponents, set API endpoint
+    CommsSDK.init({
+        element: '#comms-embed',
+        url: 'https://derive:8082',
+        // locally implemented custom store
+        store: localStore
+    }).then(function () {
+        /**
+         * Or simply
+         * let packets = await CommsSDK.createEntity('packets').limit(5).all();
+         * or even
+         * CommsSDK.createEntity('packets').all().then(function(packets){ });
+         */
+        CommsSDK.Vue.$store.dispatch('fetchPackets');
+    });
+
+</script>
+
+<p>Powered by <a href="https://comms.dev/">Comms.dev</a></p>
+
+</body>
+</html>
