@@ -1,5 +1,5 @@
 # Comms.dev
-Extend your existing online store or website with Comms.
+Extend your existing online store or website with [Comms](https://comms.dev/).
 
 ## Comms Embed
 Embed listings from your Comms store to any website using iframe.
