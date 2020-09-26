@@ -12,3 +12,7 @@ Example: [commsponents.html](./commsponents.html)
 ## Comms JS SDK
 Call your store API and manually fetch listings.
 Example: [js-sdk.html](./js-sdk.html)
+
+## Comms theme
+Build your own theme.
+Example: [CommsCenter/hub-theme-example](https://github.com/CommsCenter/hub-theme-example)
