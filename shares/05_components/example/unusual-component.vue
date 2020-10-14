@@ -49,7 +49,3 @@ export default {
     }
 }
 </script>
-
-<!--
-<hub-component-vendor-foo :action="action" :class="pagebuilderClasses"></hub-component-vendor-foo>
--->

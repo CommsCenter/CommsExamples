@@ -1,0 +1,1 @@
+Vue.component('hub-list-comms-unusual-page', () => import("./unusual-page.vue"));

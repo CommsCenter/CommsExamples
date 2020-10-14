@@ -11,5 +11,12 @@
     "some-custom-tab",
     "some-contact-form",
     "custom-packet-attributes-component"
-  ]
+  ],
+  "capabilities": [
+    "resolved:packet"
+  ],
+  "slots": {
+    "last": "Last",
+    "tab": "Tab"
+  }
 }

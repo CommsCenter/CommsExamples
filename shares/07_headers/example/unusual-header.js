@@ -1,0 +1,1 @@
+Vue.component('hub-list-comms-unusual-header', () => import("./unusual-header.vue"));

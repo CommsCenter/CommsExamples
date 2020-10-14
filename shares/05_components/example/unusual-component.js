@@ -1,0 +1,1 @@
+Vue.component('hub-list-comms-unusual-component', () => import("./unusual-component.vue"));
