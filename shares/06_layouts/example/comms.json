@@ -1,0 +1,27 @@
+{
+  "vendor": "acme",
+  "identifier": "foo-item",
+  "title": "Unusual header",
+  "version": "0.0.1a",
+  "build": "build/",
+  "entrypoint": "header.js",
+  "share": {
+    "foo-item": {
+      "slots": {
+        "header": "Header",
+        "content": "Content",
+        "footer": "Footer",
+        "sidebar": "Sidebar"
+      },
+      "settings": {
+        "from": {
+          "label": "From",
+          "type": "number",
+          "help": "Value from which we'll start counting",
+          "required": true,
+          "default": 0
+        }
+      }
+    }
+  }
+}

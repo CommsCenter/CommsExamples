@@ -1,1 +1,3 @@
 .idea/
+shares/**/node_modules
+shares/*/example/webpack.config.js

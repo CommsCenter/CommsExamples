@@ -1,0 +1,40 @@
+{
+  "vendor": "acme",
+  "identifier": "foo-item",
+  "title": "Unusual header",
+  "version": "0.0.1a",
+  "build": "build/",
+  "entrypoint": "header.js",
+  "share": {
+    "foo-item": {
+      "slots": {
+        "foo": "Foo",
+        "bar": "Bar"
+      },
+      "settings": {
+        "from": {
+          "label": "From",
+          "type": "number",
+          "help": "Value from which we'll start counting",
+          "required": true,
+          "default": 0
+        },
+        "to": {
+          "label": "To",
+          "type": "number",
+          "required": true
+        },
+        "speed": {
+          "label": "Speed",
+          "type": "select:single",
+          "required": true,
+          "options": {
+            "slow": "Slow",
+            "medium": "Medium",
+            "fast": "Fast"
+          }
+        }
+      }
+    }
+  }
+}

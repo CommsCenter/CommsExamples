@@ -1,0 +1,12 @@
+{
+  "vendor": "acme",
+  "identifier": "acme/foo-style",
+  "title": "Unusual style",
+  "version": "0.0.1a",
+  "build": "build/",
+  "entrypoint": "item.js",
+  "recommends": {
+    "components": [],
+    "themes": []
+  }
+}

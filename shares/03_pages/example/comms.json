@@ -1,0 +1,15 @@
+{
+  "vendor": "acme",
+  "identifier": "acme/foo-list",
+  "title": "Unusual grid (list)",
+  "version": "0.0.1a",
+  "build": "build/",
+  "entrypoint": "list.js",
+  "requires": [
+    "hub-list-vendor-some-gallery",
+    "some-custom-tabs",
+    "some-custom-tab",
+    "some-contact-form",
+    "custom-packet-attributes-component"
+  ]
+}

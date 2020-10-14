@@ -1,0 +1,40 @@
+{
+  "vendor": {
+    "identifier": "comms",
+    "name": "Comms Team",
+    "email": "dev@comms.dev",
+    "web": "https://comms.dev"
+  },
+  "share": {
+    "type": "list",
+    "identifier": "unusual-list",
+    "name": "Unusual grid (list)",
+    "version": "0.0.1a"
+  },
+  "assets": [
+    "list.js",
+    "list.css"
+  ],
+  "settings": {
+    "styleClass": {
+      "type": "select:single",
+      "required": true,
+      "default": "foo",
+      "options": {
+        "foo": "Foo",
+        "bar": "Bar"
+      }
+    },
+    "dashWidth": {
+      "type": "unit",
+      "default": "2px",
+      "options": {
+        "units": [
+          "px",
+          "rem",
+          "em"
+        ]
+      }
+    }
+  }
+}
