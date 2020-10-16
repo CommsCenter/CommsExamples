@@ -20,7 +20,11 @@ You can pass the `--watch` and `-p 8080:8080` parameters to watch your files and
 If the `comms.json` file is already present, the script also validates it.
 
 ## Webpack
-If your component depends on some library, you'll need to create the standard `package.json`, install your dependencies, and create custom build with docker command above. Just make sure to add `comms-hub-dev` as dependency. This will install all dependencies needed to build the component.
+If your component depends on some library, you'll need to create the standard `package.json`, install your dependencies, and create custom build with docker command above. Just make sure to add `comms-hub-dev` package as dependency to install all dependencies needed to build the component.
+
+`$ webpack --env.SHARE=unusual-header --env.SHARE_TYPE=header --env.SHARE_VENDOR=comms`
+
+You can find generic `webpack.config.js` used in `comms/dev-hub` image in `./shares/00_shared/` directory.
 
 ## VueJS
 Some mixins are available in all components (except custom components, as in examples):
@@ -30,7 +34,7 @@ Some mixins are available in all components (except custom components, as in exa
    - exposes method `cdn(url)` 
 
 ### Component mixins
-Share mixins (such as `pckgItem` and `pckgList`) expose `settings(name)` method.
+Share mixins (`pckgItem`, `pckgList`, `pckgComponent`, `pckgLayout`, `pckgPage`) expose `settings(name)` method.
 
 You can use vars in LESS by defining them in component's style tag:
 
@@ -43,6 +47,30 @@ When you use the `pckgTranslations` mixin with `__` helper, you need to define a
 You can add different settings to your shares. They must be defined in `comms.json` so they can be rendered in the Pagebuilder.
 
 Custom properties need to be defined in `comms.json`. Available property types are `string`, `number`, `decimal`, `color`, `range`.
+
+### Capabilities
+Shares can require or define different capabilities:
+ - items can require lists to have specific capabilities (such as `grid` or `no-grid`)
+ - capabilities `contents`, `content` and `content: [...fields]` allow classic content to be connected with action
+ - add `subactions` capability to allow component to have children
+ - add `slots` capability to define available slots to put children in
+
+### Content
+You can create single-, two-, or multi-level structure with generic content. Content cannot be linked to page, layout or header - you can add subactions to slots.
+
+Available fields:
+ - `id` number
+ - `created_at` datetime
+ - `updated_at` datetime
+ - `order` number
+ - `title` string
+ - `subtitle` string
+ - `description` string (HTML)
+ - `content` string (HTML)
+ - `picture` string - relative url, use cdn(content.picture), or cdn(imageResize(content.picture, 'c', '200x200'))
+ - `video` string - youtube or vimeo video
+ - `icon` string - FA icon
+ - `url` string - relative or absolute URL
 
 # ... zip ...
 To share the share, you need to .zip the `comms.json` file and `build` directory.
