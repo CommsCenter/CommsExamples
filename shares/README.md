@@ -43,11 +43,6 @@ You can use vars in LESS by defining them in component's style tag:
 ### Translations
 When you use the `pckgTranslations` mixin with `__` helper, you need to define at least English defaults. See example in [./headers/](./07_headers/). Translations will be registered under `hub.shareType.vendorName.shareIdentifier` namespace.
 
-### Settings
-You can add different settings to your shares. They must be defined in `comms.json` so they can be rendered in the Pagebuilder.
-
-Custom properties need to be defined in `comms.json`. Available property types are `string`, `number`, `decimal`, `color`, `range`.
-
 ### Capabilities
 Shares can require or define different capabilities:
  - items can require lists to have specific capabilities (such as `grid` or `no-grid`)
@@ -71,6 +66,62 @@ Available fields:
  - `video` string - youtube or vimeo video
  - `icon` string - FA icon
  - `url` string - relative or absolute URL
+
+## comms.json
+Here's a minimum required version for your `comms.json` file. You need to create a Vendor and Share on the Hub to acquire their identifiers. The file will be validated on upload and all data must match to prevent errors.
+```
+{
+    share: {
+        vendor: "vendor-identifier", # your Vendor identifier on Hub
+        type: "item", # one of allowed share types
+        identifier: "share-identifier", # your Share identifier on Hub 
+        version: "0.0.1",
+    },
+    entrypoint: "item-foo.js" # main .js file from your build
+}
+```
+
+### Settings
+You can add different settings to your shares. They must be defined in `comms.json` so they can be rendered in the Pagebuilder.
+
+They are also available in templates under value `action.settings.someStyleSetting`.
+
+Available property types are:
+ - `text` - text, up to 255 characters
+ - `html` - html, up to 1024 characters
+ - `number` - negative or positive integer
+ - `decimal` - decimal/float
+ - `color` - hex color
+ - `select:single` - dropdown with single select 
+ - `select:multiple` - dropdown with multiple selects
+ - `checkbox` - true or false
+ - `unit` - define allowed units
+
+Updated `comms.json` looks like:
+```
+{
+    ...
+    "settings": {
+        "someStyleSetting": {
+            "type": "select:single",
+            "required": true,
+            "default": "option-two",
+            "options": {
+                "option-one": "First style",
+                "option-two": "Second style"
+            }
+        },
+        "someWidthSetting": {
+            "type": "unit",
+            "required": true,
+            "default": "2px",
+            "settings": {
+                "units": ["px", "rem"]
+            }
+        },
+    }
+}
+```
 
 # ... zip ...
 To share the share, you need to .zip the `comms.json` file and `build` directory.

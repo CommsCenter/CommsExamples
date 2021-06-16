@@ -18,7 +18,7 @@ Provides basic properties in templates.
    - `mediaGridClass` string
 
 ## Build
-Follow classic build procedure as descripted [here](./../README.md).
+Follow classic build procedure as described [here](./../README.md).
 
 ## Default lists
  - `bootstrap` - bootstrap v2 - col-xx-yy

@@ -2,7 +2,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const webpack = require('webpack');
-const WebpackGitHash = require('webpack-git-hash');
+//const WebpackGitHash = require('webpack-git-hash');
 
 const vueLoader = {
     test: /\.vue$/,
@@ -113,7 +113,7 @@ module.exports = {
             chunkFilename: '[contenthash].css',
         }),
         new webpack.IgnorePlugin(/\.\/locale$/),
-        new WebpackGitHash(),
+        //new WebpackGitHash(),
     ],
     resolve: {
         alias: {

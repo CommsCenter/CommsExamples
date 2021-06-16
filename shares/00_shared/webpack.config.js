@@ -25,7 +25,7 @@ module.exports = (env) => {
     let shareType = param('SHARE_TYPE');
     let shareVendor = param('SHARE_VENDOR');
 
-    if (['list', 'item', 'page', 'style', 'component', 'layout', 'theme'].indexOf(shareType) >= 0) {
+    if (!(['list', 'item', 'page', 'style', 'component', 'layout', 'theme'].indexOf(shareType) >= 0)) {
         throw 'Invalid share type';
     }
 
