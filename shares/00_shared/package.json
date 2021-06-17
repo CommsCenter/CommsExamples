@@ -10,9 +10,9 @@
     "IE 11"
   ],
   "devDependencies": {
-    "pckg-app-frontend-dev": "^0.0.2b"
+    "pckg-app-frontend-dev": "^0.0.6"
   },
   "dependencies": {
-    "pckg-app-frontend": "^0.0.2b"
+    "pckg-app-frontend": "^0.0.6"
   }
 }

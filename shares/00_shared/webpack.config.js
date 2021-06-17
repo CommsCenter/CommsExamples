@@ -44,7 +44,7 @@ module.exports = (env) => {
         entry: entry,
         output: {
             path: process.cwd() + '/build',
-            library: library
+            library: library // HubListCommsUnusualList
         }
     })
 };
