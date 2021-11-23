@@ -33,7 +33,7 @@
 
 <script>
 export default {
-    mixins: [pckgLayout],
+    mixins: [CommsHub.layout],
     computed: {
         groupedActions: function () {
             return [

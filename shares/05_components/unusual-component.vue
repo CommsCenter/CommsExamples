@@ -6,15 +6,15 @@
 
 <script>
 export default {
-    mixin: [pckgComponent],
+    mixin: [CommsHub.component],
     comms: {
         settings: ['from', 'to', 'speed']
     },
     data: function () {
         /**
-         * pckgComponent.data already collects settings? And sets watcher?
+         * CommsHub.component.data already collects settings? And sets watcher?
          */
-        return Object.assign(pckgComponent.data.call(this), {
+        return Object.assign(CommsHub.component.data.call(this), {
             counter: null,
             step: null
         },/*this.settings(['from', 'to', 'speed'])*/);

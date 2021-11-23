@@ -85,7 +85,7 @@
 
 <script>
 export default {
-    mixins: [pckgPage],
+    mixins: [CommsHub.page],
     data: function () {
         return {
             // should packet be automatically ORM-ed?

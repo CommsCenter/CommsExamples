@@ -22,6 +22,6 @@
 
 <script>
 export default {
-    mixins: [pckgSmartList]
+    mixins: [CommsHub.list]
 }
 </script>

@@ -8,6 +8,6 @@
 
 <script>
 export default {
-    mixins: [pckgSmartItem]
+    mixins: [CommsHub.item]
 }
 </script>

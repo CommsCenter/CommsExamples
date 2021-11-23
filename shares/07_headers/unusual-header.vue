@@ -25,6 +25,6 @@
 
 <script>
 export default {
-    mixins: [pckgHeader],
+    mixins: [CommsHub.header],
 }
 </script>
